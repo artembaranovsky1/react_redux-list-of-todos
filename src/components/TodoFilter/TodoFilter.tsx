@@ -6,6 +6,7 @@ import { setQuery, setStatus } from '../../features/filter';
 export const TodoFilter: React.FC = () => {
   const dispatch = useDispatch();
   const query = useAppSelector(state => state.filter.query);
+  const status = useAppSelector(state => state.filter.status);
 
   return (
     <form
@@ -16,6 +17,7 @@ export const TodoFilter: React.FC = () => {
         <span className="select">
           <select
             data-cy="statusSelect"
+            value={status}
             onChange={event => dispatch(setStatus(event.target.value))}
           >
             <option value="all">All</option>
